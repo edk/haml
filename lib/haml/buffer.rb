@@ -160,7 +160,7 @@ module Haml
       <% if ugly %>
         return result
       <% else %>
-
+        result.encode!( Encoding.default_internal||'UTF-8', 'binary', :undef=>:replace, :invalid=>:replace, :replace=>'')
         return result if self.instance_variable_get(:@preserve_pattern).match(result)
 
         <% if !(in_tag && preserve_tag && !nuke_inner_whitespace) %>
